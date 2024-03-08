@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Carte des Incidents</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <link rel="stylesheet" href="carte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<div id="barre-utilisateur">
+    <i class="fas fa-user-circle avatar-utilisateur"></i>
+    <span class="nom-utilisateur">Utilisateur</span>
+    <button class="bouton-menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</div>
+
+<div id="contenu-menu" class="contenu-menu">
+    <a href="#" id="modifier-utilisateur"><i class="fas fa-user-edit"></i> Modifier Utilisateur</a>
+    <a href="#" id="modifier-pass"><i class="fas fa-key"></i> Modifier Mot de Passe</a>
+    <a href="#deconnexion"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+</div>
+
+<div id="map" style="width: 100%; height: 600px"></div>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+<script src="carte.js"></script>
+<script>
+    var map = L.map('map').setView([16.2650, -61.5500], 10); // Vue initiale centrée sur la Guadeloupe
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
+</script>
+<div id="btn-signaler-container">
+    <button class="btn-signaler">
+        SIGNALER
+    </button>
+</div>
+</body>
+</html>
